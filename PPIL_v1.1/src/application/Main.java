@@ -13,7 +13,6 @@ public class Main {
 		
 		Window2D W = new Window2D();
 		W.setVisible(true);
-		//test modif
 		try {
 			ServerSocket serveur;
 			serveur = new ServerSocket(9111);
