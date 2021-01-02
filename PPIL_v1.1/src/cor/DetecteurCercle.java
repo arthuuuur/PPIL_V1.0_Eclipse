@@ -21,7 +21,7 @@ public class DetecteurCercle extends DetecteurForme{
 	}
 
 	@Override
-	public DrawableObject extraire(String requete) {
+	public DrawableObject deserialize(String requete) {
 		String[] data = requete.split(";");
 		this.Shape = new Circle(Integer.parseInt(data[3]), data[5], Double.parseDouble(data[7]),Double.parseDouble(data[8]), Double.parseDouble(data[10]));
 		return Shape;

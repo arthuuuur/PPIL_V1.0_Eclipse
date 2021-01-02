@@ -34,7 +34,6 @@ public class World2D extends JPanel implements MouseListener, MouseMotionListene
 	 
     @Override
     public void paintComponent(Graphics g) {
-
         Graphics2D g2 = (Graphics2D) g;
         int h = this.getHeight();
         int w = this.getWidth();

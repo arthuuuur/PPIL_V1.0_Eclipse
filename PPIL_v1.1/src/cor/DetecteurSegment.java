@@ -22,7 +22,7 @@ public class DetecteurSegment extends DetecteurForme{
 	}
 
 	@Override
-	public DrawableObject extraire(String requete) {
+	public DrawableObject deserialize(String requete) {
 		String[] data = requete.split(";");
 		this.Shape = new Segment(Integer.parseInt(data[3]), data[5], Double.parseDouble(data[6]),Double.parseDouble(data[7]), Double.parseDouble(data[8]), Double.parseDouble(data[9]));
 		return Shape;

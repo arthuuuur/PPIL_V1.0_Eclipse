@@ -21,7 +21,7 @@ public class DetecteurPolygone extends DetecteurForme{
 	}
 
 	@Override
-	public DrawableObject extraire(String requete) {
+	public DrawableObject deserialize(String requete) {
 		String[] data = requete.split(";");
 		int[] xPoints = new int[Integer.parseInt(data[7])];
 		int[] yPoints = new int[Integer.parseInt(data[7])];

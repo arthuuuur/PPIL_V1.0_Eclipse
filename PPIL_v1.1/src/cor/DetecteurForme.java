@@ -18,11 +18,11 @@ public abstract class DetecteurForme {
 	}
 	
 	public abstract boolean estDetectee(String requete);
-	public abstract DrawableObject extraire(String requete);
+	public abstract DrawableObject deserialize(String requete);
 	
 	public void detecter(String requete, Window2D W){
 		if(estDetectee(requete)) {
-			W.getWorld2D().getPom().addObject(extraire(requete));
+			W.getWorld2D().getPom().addObject(deserialize(requete));
 		}
 		else if(suivant != null)
 			suivant.detecter(requete, W);

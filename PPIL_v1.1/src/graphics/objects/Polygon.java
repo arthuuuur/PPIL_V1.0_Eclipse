@@ -7,14 +7,14 @@ import graphics2D.World2D;
 public class Polygon implements DrawableObject {
 	
 	private int ID;
-	private String color;
+	private Color color;
 	private int[] xPoints;
 	private int[] yPoints;
 	private int nbPoints;
 	
 	public Polygon(int ID, String color, int nbPoint, int[] xPoints, int[] yPoints) {
 		this.ID = ID;
-		this.color = color;
+		this.color = new MyColor().getColor(color);
 		this.xPoints = xPoints;
 		this.yPoints = yPoints;
 		this.nbPoints = nbPoint;
@@ -33,7 +33,7 @@ public class Polygon implements DrawableObject {
 			locxPoints[i] = panel.getLocalCoordX(this.xPoints[i]);
 			locyPoints[i] = panel.getLocalCoordY(this.yPoints[i]);
 		}
-		g.setColor(Color.cyan);
+		g.setColor(color);
 		g.drawPolygon(locxPoints, locyPoints, this.nbPoints); // !!!!! tableau des co x et y en int mais devrait etre en double !!!!!
 	}
 }
