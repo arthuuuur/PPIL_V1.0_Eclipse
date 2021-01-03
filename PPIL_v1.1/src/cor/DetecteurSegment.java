@@ -14,9 +14,11 @@ public class DetecteurSegment extends DetecteurForme{
 	
 	@Override
 	public boolean estDetectee(String requete) {
-		String[] data = requete.split(";");
-		if(data[1].compareTo("1") == 0) {
-			return true;
+		if (requete != null) {
+			String[] data = requete.split(";");
+			if(data[1].compareTo("1") == 0) {
+				return true;
+			}
 		}
 		return false;
 	}
