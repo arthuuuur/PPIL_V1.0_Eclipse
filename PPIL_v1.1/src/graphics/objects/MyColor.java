@@ -28,7 +28,7 @@ public class MyColor {
 	        color = Color.RED;
 	        break;
 	    default:
-	    	System.out.println("La couleur demandée n'est pas disponible, le cyan a été choisi par défaut");
+	    	System.out.println("La couleur "+ col + " n'est pas disponible, le cyan a été choisi par défaut");
 	    }
 		return color;
 	}

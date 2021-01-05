@@ -17,6 +17,15 @@ public abstract class DetecteurForme {
 		this.suivant = suivant;
 	}
 	
+	public int indexOf(String[] data, String val ) {
+		for (int i = 0; i < data.length; i ++) {
+			if(data[i].matches(val)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
 	public abstract boolean estDetectee(String requete);
 	public abstract DrawableObject deserialize(String requete);
 	
