@@ -26,7 +26,13 @@ public class DetecteurPolygone extends DetecteurForme{
 	public DrawableObject deserialize(String requete) {
 		String[] data = requete.split(";");
 		int id = Integer.parseInt(data[this.indexOf(data, "ID") + 1]);
-		String color = data[this.indexOf(data, "shapeColor") + 1];
+		String color;
+		if (Integer.parseInt(data[this.indexOf(data, "groupID") + 1]) != -1) {
+			color = data[this.indexOf(data, "groupColor") + 1];
+		}
+		else {
+			color = data[this.indexOf(data, "shapeColor") + 1];
+		}
 		int nbPoints = Integer.parseInt(data[this.indexOf(data, "nbPoint") + 1]);
 		int[] xPoints = new int[nbPoints];
 		int[] yPoints = new int[nbPoints];
