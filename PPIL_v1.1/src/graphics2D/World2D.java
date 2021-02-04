@@ -35,45 +35,46 @@ public class World2D extends JPanel implements MouseListener, MouseMotionListene
     @Override
     public void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        int h = this.getHeight();
-        int w = this.getWidth();
-        g.setColor(Color.GRAY);
-        g.fillRect(0, 0, w, h);
+        int height = this.getHeight();
+        int width = this.getWidth();
+        g.setColor(Color.GRAY); // couleur du fond
+        g.fillRect(0, 0, width, height);
         //tracé des axes et du quadrillage
-        int roundOffsetX = (int) Math.round(this.offsetX);
-        int roundOffsetY = (int) Math.round(this.offsetY);
-        int localStepX = (int) Math.round(ECHELLE / ECHELLE_BASE * stepX);
-        int localStepY = (int) Math.round(ECHELLE / ECHELLE_BASE * stepY);
-        g.setColor(Color.BLACK);
-        g.drawLine(w / 2 + roundOffsetX, 0, w / 2 + roundOffsetX, h);
-        g.drawLine(0, h / 2 + roundOffsetY, w, h / 2 + roundOffsetY);
+        int roundOffsetX = (int) Math.round(this.offsetX); // décalage de la coordonnée x du centre du repere par rapport au centre de la fenetre
+        int roundOffsetY = (int) Math.round(this.offsetY); // décalage de la coordonnée y du centre du repere par rapport au centre de la fenetre
+        int localStepX = (int) Math.round(ECHELLE / ECHELLE_BASE * stepX); // pas pour le quadrillage verticale
+        int localStepY = (int) Math.round(ECHELLE / ECHELLE_BASE * stepY); // pas pour le quadrillage horizontale
+        g.setColor(Color.BLACK); // couleur des axes du repere
+        g.drawLine(width / 2 + roundOffsetX, 0, width / 2 + roundOffsetX, height);
+        g.drawLine(0, height / 2 + roundOffsetY, width, height / 2 + roundOffsetY);
         int offsetStrokeX = 7 - roundOffsetX % 7;
         int offsetStrokeY = 7 - roundOffsetY % 7;
-        float[] dash = {2, 5};
-        BasicStroke bsX = new BasicStroke(1, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND, 10, dash, offsetStrokeX);
-        BasicStroke bsY = new BasicStroke(1, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND, 10, dash, offsetStrokeY);
-        g.setColor(new Color(60, 85, 60));
-        g2.setStroke(bsY);
-        int nbxp = (w - (w / 2 + roundOffsetX)) / localStepX + 1;
-        int nbxm = (w / 2 + roundOffsetX) / localStepX + 1;
+        float[] dash = {1, 4};
+        BasicStroke bsX = new BasicStroke(1, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND, 10, dash, offsetStrokeX); // quadrillage verticale en pointillé 
+        BasicStroke bsY = new BasicStroke(1, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND, 10, dash, offsetStrokeY); // quadrillage horizontale en pointillé 
+        g.setColor(new Color(20, 60, 40)); // couleur des axes du quadrillage
+        g2.setStroke(bsY); // dessin quadrillage verticale
+        int nbxp = (width - (width / 2 + roundOffsetX)) / localStepX + 1; // nombre d'axe verticale du quadrillage a droit de l'axe y du repere
+        int nbxm = (width / 2 + roundOffsetX) / localStepX + 1; // nombre d'axe verticale du quadrillage a gauche de l'axe y du repere
+
         for (int i = 1; i < nbxp; i++) {
-            int xline = w / 2 + roundOffsetX + (int) Math.round(i * stepX * ECHELLE / ECHELLE_BASE);
-            g.drawLine(xline, 0, xline, h);
+            int xline = width / 2 + roundOffsetX + (int) Math.round(i * stepX * ECHELLE / ECHELLE_BASE);
+            g.drawLine(xline, 0, xline, height);
         }
         for (int i = 1; i < nbxm; i++) {
-            int xline = w / 2 + roundOffsetX - (int) Math.round(i * stepX * ECHELLE / ECHELLE_BASE);
-            g.drawLine(xline, 0, xline, h);
+            int xline = width / 2 + roundOffsetX - (int) Math.round(i * stepX * ECHELLE / ECHELLE_BASE);
+            g.drawLine(xline, 0, xline, height);
         }
         g2.setStroke(bsX);
-        int nbym = (h - (h / 2 + roundOffsetY)) / localStepY + 1;
-        int nbyp = (h / 2 + roundOffsetY) / localStepY + 1;
+        int nbym = (height - (height / 2 + roundOffsetY)) / localStepY + 1; // nombre d'axe horizontale du quadrillage en haut de l'axe x du repere
+        int nbyp = (height / 2 + roundOffsetY) / localStepY + 1; // nombre d'axe horizontale du quadrillage en bas de l'axe x du repere
         for (int i = 1; i < nbyp; i++) {
-            int yline = h / 2 + roundOffsetY - (int) Math.round(i * stepY * ECHELLE / ECHELLE_BASE);
-            g.drawLine(0, yline, w, yline);
+            int yline = height / 2 + roundOffsetY - (int) Math.round(i * stepY * ECHELLE / ECHELLE_BASE);
+            g.drawLine(0, yline, width, yline);
         }
         for (int i = 1; i < nbym; i++) {
-            int yline = h / 2 + roundOffsetY + (int) Math.round(i * stepY * ECHELLE / ECHELLE_BASE);
-            g.drawLine(0, yline, w, yline);
+            int yline = height / 2 + roundOffsetY + (int) Math.round(i * stepY * ECHELLE / ECHELLE_BASE);
+            g.drawLine(0, yline, width, yline);
         }        
         g2.setStroke(new BasicStroke());
         if (this.pom != null) {
