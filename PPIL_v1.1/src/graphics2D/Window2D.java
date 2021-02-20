@@ -13,7 +13,7 @@ import cor.DetecteurSegment;
 @SuppressWarnings("serial")
 public class Window2D extends JFrame {
 
-	private World2D pfguipanel;
+	private World2D panel;
 	private DetecteurForme cor;
 
 	public void ajouterDetecteur(DetecteurForme d) {
@@ -26,7 +26,7 @@ public class Window2D extends JFrame {
 	}
 	
 	public World2D getWorld2D() {
-		return this.pfguipanel;
+		return this.panel;
 	}
 	
 	public void initCor() {
@@ -38,9 +38,9 @@ public class Window2D extends JFrame {
     public Window2D() {
         super("Dessin");
         initCor();
-        this.pfguipanel = new World2D();
-        this.pfguipanel.setPreferredSize(new Dimension(800, 600));
-        this.add(this.pfguipanel, BorderLayout.CENTER);
+        this.panel = new World2D();
+        this.panel.setPreferredSize(new Dimension(800, 600));
+        this.add(this.panel, BorderLayout.CENTER);
         this.pack();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
