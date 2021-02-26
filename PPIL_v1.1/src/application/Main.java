@@ -11,8 +11,7 @@ public class Main {
 	@SuppressWarnings({"resource"})
 	public static void main(String[] args) {
 		
-		Window2D W = new Window2D();
-		W.setVisible(true);
+		
 		try {
 			ServerSocket serveur;
 			serveur = new ServerSocket(9111);
@@ -26,6 +25,8 @@ public class Main {
 				nouveauClientSocket = serveur.accept();
 				++noConnexion;
 				System.out.println("Connexion reussie n° : "+noConnexion);
+				Window2D W = new Window2D();
+				W.setVisible(true);
 				nouveauClientThread = new ReceveurEnvoyeur(nouveauClientSocket, groupe, noConnexion, W);
 				nouveauClientThread.start();
 			}

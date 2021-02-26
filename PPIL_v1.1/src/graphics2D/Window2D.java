@@ -42,6 +42,6 @@ public class Window2D extends JFrame {
         this.panel.setPreferredSize(new Dimension(800, 600));
         this.add(this.panel, BorderLayout.CENTER);
         this.pack();
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 }
