@@ -26,7 +26,6 @@ public class DetecteurSegment extends DetecteurForme{
 	@Override
 	public DrawableObject deserialize(String requete) {
 		String[] data = requete.split(";");
-		int id = Integer.parseInt(data[this.indexOf(data, "ID") + 1]);
 		String color;
 		if (Integer.parseInt(data[this.indexOf(data, "groupID") + 1]) != -1) {
 			color = data[this.indexOf(data, "groupColor") + 1];
@@ -39,7 +38,7 @@ public class DetecteurSegment extends DetecteurForme{
 		y1 = Double.parseDouble(data[this.indexOf(data, "list") + 2]);
 		x2 = Double.parseDouble(data[this.indexOf(data, "list") + 3]);
 		y2 = Double.parseDouble(data[this.indexOf(data, "list") + 4]);
-		this.Shape = new Segment(id,color,x1,y1,x2,y2);
+		this.Shape = new Segment(color,x1,y1,x2,y2);
 		return Shape;
 	}
 }

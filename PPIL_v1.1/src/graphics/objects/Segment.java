@@ -6,21 +6,16 @@ import graphics2D.World2D;
 
 public class Segment implements DrawableObject {
 
-	private int ID;
 	private Color color;
 	private Point p1, p2;
 		
-	public Segment(int ID, String color, double x1, double y1, double x2, double y2) {
-		this.ID = ID;
+	public Segment(String color, double x1, double y1, double x2, double y2) {
 		this.color = new MyColor().getColor(color);
 		this.p1 = new Point(x1,y1);
 		this.p2 = new Point(x2,y2);
 	}
 	
-	@Override
-	public int getID() {
-		return ID;
-	}
+
 
 	@Override
 	public void draw(Graphics g, World2D panel) {

@@ -6,24 +6,19 @@ import graphics2D.World2D;
 
 public class Polygon implements DrawableObject {
 	
-	private int ID;
 	private Color color;
 	private int[] xPoints;
 	private int[] yPoints;
 	private int nbPoints;
 	
-	public Polygon(int ID, String color, int nbPoint, int[] xPoints, int[] yPoints) {
-		this.ID = ID;
+	public Polygon(String color, int nbPoint, int[] xPoints, int[] yPoints) {
 		this.color = new MyColor().getColor(color);
 		this.xPoints = xPoints;
 		this.yPoints = yPoints;
 		this.nbPoints = nbPoint;
 	}
 	
-	@Override
-	public int getID() {
-		return ID;
-	}
+
 
 	@Override
 	public void draw(Graphics g, World2D panel) {

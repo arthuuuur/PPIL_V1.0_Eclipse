@@ -31,10 +31,7 @@ public class Point implements DrawableObject {
 		this.y = y;
 	}
 	
-	@Override
-	public int getID() {
-		return -1;
-	}
+
 
 	@Override
 	public void draw(Graphics g, World2D panel) {

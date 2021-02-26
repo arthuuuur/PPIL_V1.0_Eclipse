@@ -25,7 +25,6 @@ public class DetecteurCercle extends DetecteurForme{
 	@Override
 	public DrawableObject deserialize(String requete) {
 		String[] data = requete.split(";");
-		int id = Integer.parseInt(data[this.indexOf(data, "ID") + 1]);
 		String color;
 		if (Integer.parseInt(data[this.indexOf(data, "groupID") + 1]) != -1) {
 			color = data[this.indexOf(data, "groupColor") + 1];
@@ -37,7 +36,7 @@ public class DetecteurCercle extends DetecteurForme{
 		centerx = Double.parseDouble(data[this.indexOf(data, "center") + 1]);
 		centery = Double.parseDouble(data[this.indexOf(data, "center") + 2]);
 		radius = Double.parseDouble(data[this.indexOf(data, "radius") + 1]);
-		this.Shape = new Circle(id,color,centerx,centery,radius);
+		this.Shape = new Circle(color,centerx,centery,radius);
 		return Shape;
 	}
 }

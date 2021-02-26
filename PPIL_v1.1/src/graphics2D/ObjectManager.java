@@ -20,18 +20,13 @@ public class ObjectManager{
     }
 
     public void addObject(DrawableObject obj) {
-    	for (int i = 0; i < this.objects.size(); i++) {
-            if (obj.getID() == this.objects.get(i).getID()) {
-            	this.removeObject(i);
-            	break;
-            }
-        }
     	this.objects.add(obj);
         W.repaint();
     }
 
     public void removeObject(int rank) {
         this.objects.remove(rank);
+        W.repaint();
     }
     
     public void draw(Graphics g, World2D panel) {

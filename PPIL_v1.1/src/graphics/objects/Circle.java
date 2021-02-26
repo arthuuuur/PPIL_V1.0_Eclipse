@@ -6,22 +6,17 @@ import graphics2D.World2D;
 
 public class Circle implements DrawableObject {
 	
-	private int ID;
 	private Color color;
 	private Point center;
 	private double radius;
 		
-	public Circle(int ID,String color, double x, double y, double radius) {
-		this.ID = ID;
+	public Circle(String color, double x, double y, double radius) {
 		this.color = new MyColor().getColor(color);
 		this.center = new Point(x,y);
 		this.radius = radius * World2D.ECHELLE / World2D.ECHELLE_BASE * 2;
 	}
 	
-	@Override
-	public int getID() {
-		return ID;
-	}
+
 
 	@Override
 	public void draw(Graphics g, World2D panel) {
