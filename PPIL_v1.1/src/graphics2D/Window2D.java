@@ -39,7 +39,7 @@ public class Window2D extends JFrame {
         super("Dessin");
         initCor();
         this.panel = new World2D();
-        this.panel.setPreferredSize(new Dimension(800, 600));
+        this.panel.setPreferredSize(new Dimension(800, 800));
         this.add(this.panel, BorderLayout.CENTER);
         this.pack();
         //this.setDefaultCloseOperation(EXIT_ON_CLOSE);

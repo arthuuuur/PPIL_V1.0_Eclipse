@@ -13,11 +13,9 @@ public class Circle implements DrawableObject {
 	public Circle(String color, double x, double y, double radius) {
 		this.color = new MyColor().getColor(color);
 		this.center = new Point(x,y);
-		this.radius = radius * World2D.ECHELLE / World2D.ECHELLE_BASE * 2;
+		this.radius = radius * World2D.ECHELLE * 2;
 	}
 	
-
-
 	@Override
 	public void draw(Graphics g, World2D panel) {
 		int xloc1 = panel.getLocalCoordX(this.center.getX());
