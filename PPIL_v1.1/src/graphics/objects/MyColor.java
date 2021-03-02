@@ -7,7 +7,7 @@ public class MyColor {
 	private Color color;
 
     public MyColor(){
-    	color = Color.CYAN;
+    	color = null;
     }
 
 	public Color getColor(String col) {

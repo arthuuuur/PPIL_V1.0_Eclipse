@@ -3,9 +3,9 @@ package graphics.objects;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import graphics2D.World2D;
+import graphics2D.World;
 
-public class Point implements DrawableObject {
+public class Point implements DrawableShapes {
 
 	private double x;
 	private double y;
@@ -31,18 +31,13 @@ public class Point implements DrawableObject {
 		this.y = y;
 	}
 	
-
-
 	@Override
-	public void draw(Graphics g, World2D panel) {
-		int xloc = panel.getLocalCoordX(this.x);
-        int yloc = panel.getLocalCoordY(this.y);
-
-        int[] xPoints = {xloc + 5, xloc - 5, xloc - 5, xloc + 5, xloc + 5};
-        int[] yPoints = {yloc + 5, yloc + 5, yloc - 5, yloc - 5, yloc + 5};
-
-        g.setColor(Color.cyan);
-        g.drawPolyline(xPoints, yPoints, 5);
+	public void draw(Graphics g, World panel) {
+		int xloc = panel.getCoordX(this.x);
+        int yloc = panel.getCoordY(this.y);
+        g.setColor(Color.RED);
+        g.drawOval(xloc - 2, yloc - 2, 4, 4);
+        g.fillOval(xloc - 2, yloc - 2, 4, 4);
 	}
 
 }

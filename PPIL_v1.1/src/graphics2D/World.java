@@ -9,25 +9,29 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import javax.swing.JPanel;
 
+import graphics.objects.Point;
+
 @SuppressWarnings("serial")
-public class World2D extends JPanel implements MouseListener, MouseMotionListener {
+public class World extends JPanel implements MouseListener, MouseMotionListener {
 
   
-	 private ObjectManager ObjManag = new ObjectManager(this);     // gestionnaire d'objets graphiques
+	 private ShapesManager ObjManager = new ShapesManager(this);
 	 private int Xold, Yold;                      // coordonnées du point local précédent
 	 private int Xoffset, Yoffset;           	  // décalage de la vue par rapport au centre du repere
 	 public static int ECHELLE = 20; 			  // pas du quadrillage
 	
-	 public World2D() {
+	 public World() {
 		 super();
 		 this.Xoffset = 0;
 		 this.Yoffset = 0;
 		 this.addMouseListener(this);
 		 this.addMouseMotionListener(this);
+		 Point p = new Point(4,3);
+		 ObjManager.addObject(p);
 	 }
    
-	 public ObjectManager getObjManag() {
-		 return this.ObjManag;
+	 public ShapesManager getObjManager() {
+		 return this.ObjManager;
 	 }
 	 
     @Override
@@ -49,28 +53,30 @@ public class World2D extends JPanel implements MouseListener, MouseMotionListene
         //dessin du quadrillage
         int nbLineRightY = (width - (width / 2 + this.Xoffset)) / ECHELLE + 1; // nombre d'axe verticale du quadrillage a droit de l'axe y du repere
         int nbLineLeftY = (width / 2 + this.Xoffset) / ECHELLE + 1; // nombre d'axe verticale du quadrillage a gauche de l'axe y du repere
-        int coord;
-        for (int i = 1; i < nbLineRightY; i++) {
-            coord = width / 2 + this.Xoffset + (int) Math.round(i * ECHELLE );
-            g.drawLine(coord, 0, coord, height);
-        }
-        for (int i = 1; i < nbLineLeftY; i++) {
-            coord = width / 2 + this.Xoffset - (int) Math.round(i * ECHELLE );
-            g.drawLine(coord, 0, coord, height);
-        }
         int nbLineUpX = (height - (height / 2 + this.Yoffset)) / ECHELLE + 1; // nombre d'axe horizontale du quadrillage en haut de l'axe x du repere
         int nbLineDownX = (height / 2 + this.Yoffset) / ECHELLE + 1; // nombre d'axe horizontale du quadrillage en bas de l'axe x du repere
-        for (int i = 1; i < nbLineDownX; i++) {
-            coord = height / 2 + this.Yoffset - (int) Math.round(i * ECHELLE );
+        int coord;
+        int i;
+        for ( i = 1; i < nbLineRightY; i++) {
+            coord = width / 2 + this.Xoffset + i * ECHELLE;
+            g.drawLine(coord, 0, coord, height);
+        }
+        for (i = 1; i < nbLineLeftY; i++) {
+            coord = width / 2 + this.Xoffset - i * ECHELLE;
+            g.drawLine(coord, 0, coord, height);
+        }
+        
+        for (i = 1; i < nbLineDownX; i++) {
+            coord = height / 2 + this.Yoffset - i * ECHELLE;
             g.drawLine(0, coord, width, coord);
         }
-        for (int i = 1; i < nbLineUpX; i++) {
-            coord = height / 2 + this.Yoffset + (int) Math.round(i * ECHELLE );
+        for (i = 1; i < nbLineUpX; i++) {
+            coord = height / 2 + this.Yoffset + i * ECHELLE;
             g.drawLine(0, coord, width, coord);
         }        
         g2.setStroke(new BasicStroke()); // on enleve les pointillés 
-        if (this.ObjManag != null) {
-            this.ObjManag.draw(g, this);
+        if (this.ObjManager != null) {
+            this.ObjManager.draw(g, this);
         }   
     }
     
@@ -91,11 +97,11 @@ public class World2D extends JPanel implements MouseListener, MouseMotionListene
         this.Yold = e.getY();
     }
 
-    public int getLocalCoordX(double x) {
+    public int getCoordX(double x) {
         return (int) Math.round(this.getWidth() / 2 + this.Xoffset + x * ECHELLE);
     }
 
-    public int getLocalCoordY(double y) {
+    public int getCoordY(double y) {
         return (int) Math.round(this.getHeight() / 2 + this.Yoffset - y * ECHELLE);
     }
 
@@ -128,4 +134,6 @@ public class World2D extends JPanel implements MouseListener, MouseMotionListene
 		// TODO Auto-generated method stub
 		
 	}
+
+
 }

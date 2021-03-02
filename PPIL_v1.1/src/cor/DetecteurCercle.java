@@ -1,11 +1,11 @@
 package cor;
 
 import graphics.objects.Circle;
-import graphics.objects.DrawableObject;
+import graphics.objects.DrawableShapes;
 
 public class DetecteurCercle extends DetecteurForme{
 	
-	private DrawableObject Shape;
+	private DrawableShapes Shape;
 		
 	public DetecteurCercle() {
 		super();
@@ -23,7 +23,7 @@ public class DetecteurCercle extends DetecteurForme{
 	}
 
 	@Override
-	public DrawableObject deserialize(String requete) {
+	public DrawableShapes deserialize(String requete) {
 		String[] data = requete.split(";");
 		String color;
 		if (Integer.parseInt(data[this.indexOf(data, "groupID") + 1]) != -1) {

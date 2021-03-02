@@ -3,7 +3,7 @@ package application;
 import java.net.ServerSocket;
 import java.net.Socket;
 import Server.ReceveurEnvoyeur;
-import graphics2D.Window2D;
+import graphics2D.Window;
 
 
 public class Main {
@@ -24,7 +24,7 @@ public class Main {
 				nouveauClientSocket = serveur.accept();
 				++noConnexion;
 				System.out.println("Connexion reussie n° : "+noConnexion);
-				Window2D W = new Window2D();
+				Window W = new Window();
 				W.setVisible(true);
 				nouveauClientThread = new ReceveurEnvoyeur(nouveauClientSocket, groupe, noConnexion, W);
 				nouveauClientThread.start();

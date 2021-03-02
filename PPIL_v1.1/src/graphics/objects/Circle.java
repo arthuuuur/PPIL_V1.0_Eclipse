@@ -2,9 +2,9 @@ package graphics.objects;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import graphics2D.World2D;
+import graphics2D.World;
 
-public class Circle implements DrawableObject {
+public class Circle implements DrawableShapes {
 	
 	private Color color;
 	private Point center;
@@ -13,14 +13,14 @@ public class Circle implements DrawableObject {
 	public Circle(String color, double x, double y, double radius) {
 		this.color = new MyColor().getColor(color);
 		this.center = new Point(x,y);
-		this.radius = radius * World2D.ECHELLE * 2;
+		this.radius = radius * World.ECHELLE * 2;
 	}
 	
 	@Override
-	public void draw(Graphics g, World2D panel) {
-		int xloc1 = panel.getLocalCoordX(this.center.getX());
-        int yloc1 = panel.getLocalCoordY(this.center.getY());
+	public void draw(Graphics g, World panel) {
+		int xloc1 = panel.getCoordX(this.center.getX());
+        int yloc1 = panel.getCoordY(this.center.getY());
         g.setColor(color);
-        g.drawOval(xloc1 - (int)this.radius/2, yloc1 - (int)this.radius/2, (int)this.radius, (int)this.radius); // !!!!! attention ici cast en int mais le radius devrait rester un double !!!!!
+        g.drawOval(xloc1 - (int)this.radius / 2, yloc1 - (int)this.radius / 2, (int)this.radius, (int)this.radius);
 	}
 }

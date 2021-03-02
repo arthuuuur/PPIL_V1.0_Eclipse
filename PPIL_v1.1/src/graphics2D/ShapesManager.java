@@ -3,14 +3,14 @@ package graphics2D;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
-import graphics.objects.DrawableObject;
+import graphics.objects.DrawableShapes;
 
-public class ObjectManager{
+public class ShapesManager{
 
-	private List<DrawableObject> objects; 
-	private World2D W;
+	private List<DrawableShapes> objects; 
+	private World W;
 	
-    public ObjectManager(World2D W) {
+    public ShapesManager(World W) {
     	this.W = W;
         this.objects = new ArrayList<>();
     }
@@ -19,7 +19,7 @@ public class ObjectManager{
         this.objects.clear();
     }
 
-    public void addObject(DrawableObject obj) {
+    public void addObject(DrawableShapes obj) {
     	this.objects.add(obj);
         W.repaint();
     }
@@ -29,8 +29,8 @@ public class ObjectManager{
         W.repaint();
     }
     
-    public void draw(Graphics g, World2D panel) {
-        for (DrawableObject current : this.objects) {
+    public void draw(Graphics g, World panel) {
+        for (DrawableShapes current : this.objects) {
             current.draw(g,panel);
         }
     }

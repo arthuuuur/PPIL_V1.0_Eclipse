@@ -5,16 +5,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
-import graphics2D.Window2D;
+import graphics2D.Window;
 
 public class ReceveurEnvoyeur extends Thread {
 	
 	private Socket socket;
 	private BufferedReader fluxEntrant;
 	private PrintStream fluxSortant;
-	private Window2D W;
+	private Window W;
 	
-	public ReceveurEnvoyeur(Socket socket, ThreadGroup groupe, int noConnexion, Window2D W) throws IOException {
+	public ReceveurEnvoyeur(Socket socket, ThreadGroup groupe, int noConnexion, Window W) throws IOException {
 		super(groupe,"ReceveurEnvoyeur");
 		this.socket = socket;
 		this.W = W;

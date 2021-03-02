@@ -2,9 +2,9 @@ package graphics.objects;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import graphics2D.World2D;
+import graphics2D.World;
 
-public class Segment implements DrawableObject {
+public class Segment implements DrawableShapes {
 
 	private Color color;
 	private Point p1, p2;
@@ -18,11 +18,11 @@ public class Segment implements DrawableObject {
 
 
 	@Override
-	public void draw(Graphics g, World2D panel) {
-		int xloc1 = panel.getLocalCoordX(this.p1.getX());
-        int yloc1 = panel.getLocalCoordY(this.p1.getY());
-        int xloc2 = panel.getLocalCoordX(this.p2.getX());
-        int yloc2 = panel.getLocalCoordY(this.p2.getY());
+	public void draw(Graphics g, World panel) {
+		int xloc1 = panel.getCoordX(this.p1.getX());
+        int yloc1 = panel.getCoordY(this.p1.getY());
+        int xloc2 = panel.getCoordX(this.p2.getX());
+        int yloc2 = panel.getCoordY(this.p2.getY());
         g.setColor(color);
         g.drawLine(xloc1, yloc1, xloc2, yloc2);
 	}

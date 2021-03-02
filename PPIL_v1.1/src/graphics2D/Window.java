@@ -11,9 +11,9 @@ import cor.DetecteurSegment;
 
 
 @SuppressWarnings("serial")
-public class Window2D extends JFrame {
+public class Window extends JFrame {
 
-	private World2D panel;
+	private World panel;
 	private DetecteurForme cor;
 
 	public void ajouterDetecteur(DetecteurForme d) {
@@ -25,7 +25,7 @@ public class Window2D extends JFrame {
 		return this.cor;
 	}
 	
-	public World2D getWorld2D() {
+	public World getWorld2D() {
 		return this.panel;
 	}
 	
@@ -35,10 +35,10 @@ public class Window2D extends JFrame {
 		ajouterDetecteur(new DetecteurPolygone());
 	}
 	
-    public Window2D() {
+    public Window() {
         super("Dessin");
         initCor();
-        this.panel = new World2D();
+        this.panel = new World();
         this.panel.setPreferredSize(new Dimension(800, 800));
         this.add(this.panel, BorderLayout.CENTER);
         this.pack();

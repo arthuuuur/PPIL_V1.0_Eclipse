@@ -1,11 +1,11 @@
 package cor;
 
-import graphics.objects.DrawableObject;
+import graphics.objects.DrawableShapes;
 import graphics.objects.Polygon;
 
 public class DetecteurPolygone extends DetecteurForme{
 	
-	private DrawableObject Shape;
+	private DrawableShapes Shape;
 		
 	public DetecteurPolygone() {
 		super();
@@ -23,7 +23,7 @@ public class DetecteurPolygone extends DetecteurForme{
 	}
 
 	@Override
-	public DrawableObject deserialize(String requete) {
+	public DrawableShapes deserialize(String requete) {
 		String[] data = requete.split(";");
 		String color;
 		if (Integer.parseInt(data[this.indexOf(data, "groupID") + 1]) != -1) {

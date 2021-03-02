@@ -1,7 +1,7 @@
 package cor;
 
-import graphics.objects.DrawableObject;
-import graphics2D.Window2D;
+import graphics.objects.DrawableShapes;
+import graphics2D.Window;
 
 public abstract class DetecteurForme {
 
@@ -27,11 +27,11 @@ public abstract class DetecteurForme {
 	}
 	
 	public abstract boolean estDetectee(String requete);
-	public abstract DrawableObject deserialize(String requete);
+	public abstract DrawableShapes deserialize(String requete);
 	
-	public void detecter(String requete, Window2D W){
+	public void detecter(String requete, Window W){
 		if(estDetectee(requete)) {
-			W.getWorld2D().getObjManag().addObject(deserialize(requete));
+			W.getWorld2D().getObjManager().addObject(deserialize(requete));
 		}
 		else if(suivant != null)
 			suivant.detecter(requete, W);

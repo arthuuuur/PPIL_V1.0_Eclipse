@@ -2,9 +2,9 @@ package graphics.objects;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import graphics2D.World2D;
+import graphics2D.World;
 
-public class Polygon implements DrawableObject {
+public class Polygon implements DrawableShapes {
 	
 	private Color color;
 	private int[] xPoints;
@@ -21,14 +21,14 @@ public class Polygon implements DrawableObject {
 
 
 	@Override
-	public void draw(Graphics g, World2D panel) {
+	public void draw(Graphics g, World panel) {
 		int[] locxPoints = new int[this.nbPoints];
 		int[] locyPoints = new int[this.nbPoints];
 		for (int i = 0; i < this.nbPoints; i++) {
-			locxPoints[i] = panel.getLocalCoordX(this.xPoints[i]);
-			locyPoints[i] = panel.getLocalCoordY(this.yPoints[i]);
+			locxPoints[i] = panel.getCoordX(this.xPoints[i]);
+			locyPoints[i] = panel.getCoordY(this.yPoints[i]);
 		}
 		g.setColor(color);
-		g.drawPolygon(locxPoints, locyPoints, this.nbPoints); // !!!!! tableau des co x et y en int mais devrait etre en double !!!!!
+		g.drawPolygon(locxPoints, locyPoints, this.nbPoints);
 	}
 }
