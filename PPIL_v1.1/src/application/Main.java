@@ -11,7 +11,6 @@ public class Main {
 	@SuppressWarnings({"resource"})
 	public static void main(String[] args) {
 		try {
-			
 			ServerSocket serveur;
 			serveur = new ServerSocket(9111);
 			System.out.println("Serveur de dessin demarre : " +serveur);
@@ -33,11 +32,6 @@ public class Main {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
-	
 }
 
 

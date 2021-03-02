@@ -23,7 +23,7 @@ public class ReceveurEnvoyeur extends Thread {
 	}
 	
 	public void traiterRequete(String requete) {
-		W.getCor().detecter(requete, W);
+		W.getWorld().getObjManager().getCor().detecter(requete, W);
 	}
 	
 	public void run() {

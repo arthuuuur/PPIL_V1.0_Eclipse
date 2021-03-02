@@ -31,7 +31,7 @@ public abstract class DetecteurForme {
 	
 	public void detecter(String requete, Window W){
 		if(estDetectee(requete)) {
-			W.getWorld2D().getObjManager().addObject(deserialize(requete));
+			W.getWorld().getObjManager().addObject(deserialize(requete));
 		}
 		else if(suivant != null)
 			suivant.detecter(requete, W);

@@ -9,8 +9,6 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import javax.swing.JPanel;
 
-import graphics.objects.Point;
-
 @SuppressWarnings("serial")
 public class World extends JPanel implements MouseListener, MouseMotionListener {
 
@@ -26,8 +24,6 @@ public class World extends JPanel implements MouseListener, MouseMotionListener 
 		 this.Yoffset = 0;
 		 this.addMouseListener(this);
 		 this.addMouseMotionListener(this);
-		 Point p = new Point(4,3);
-		 ObjManager.addObject(p);
 	 }
    
 	 public ShapesManager getObjManager() {
@@ -134,6 +130,4 @@ public class World extends JPanel implements MouseListener, MouseMotionListener 
 		// TODO Auto-generated method stub
 		
 	}
-
-
 }
