@@ -52,9 +52,9 @@ public class ShapesManager{
 		ajouterDetecteur(new DetecteurPolygone());
 	}
 	
-    public void draw(Graphics g, World panel) {
+    public void draw(Graphics g, World world) {
         for (DrawableShapes current : this.objects) {
-            current.draw(g,panel);
+            current.draw(g,world);
         }
     }
 }

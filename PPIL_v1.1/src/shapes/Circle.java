@@ -18,9 +18,9 @@ public class Circle implements DrawableShapes {
 	}
 	
 	@Override
-	public void draw(Graphics g, World panel) {
-		int xloc1 = panel.getCoordX(this.center.getX());
-        int yloc1 = panel.getCoordY(this.center.getY());
+	public void draw(Graphics g, World world) {
+		int xloc1 = world.getCoordX(this.center.getX());
+        int yloc1 = world.getCoordY(this.center.getY());
         g.setColor(color);
         g.drawOval(xloc1 - (int)this.radius / 2, yloc1 - (int)this.radius / 2, (int)this.radius, (int)this.radius);
 	}

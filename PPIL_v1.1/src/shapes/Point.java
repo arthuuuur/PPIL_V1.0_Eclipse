@@ -32,9 +32,9 @@ public class Point implements DrawableShapes {
 	}
 	
 	@Override
-	public void draw(Graphics g, World panel) {
-		int xloc = panel.getCoordX(this.x);
-        int yloc = panel.getCoordY(this.y);
+	public void draw(Graphics g, World world) {
+		int xloc = world.getCoordX(this.x);
+        int yloc = world.getCoordY(this.y);
         g.setColor(Color.RED);
         g.drawOval(xloc - 2, yloc - 2, 4, 4);
         g.fillOval(xloc - 2, yloc - 2, 4, 4);

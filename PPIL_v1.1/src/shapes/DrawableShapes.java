@@ -6,5 +6,5 @@ import ui.World;
 
 public interface DrawableShapes {
 	
-    public void draw(Graphics g, World panel);
+    public void draw(Graphics g, World world);
 }

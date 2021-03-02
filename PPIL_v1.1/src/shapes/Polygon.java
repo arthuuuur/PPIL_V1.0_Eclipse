@@ -22,12 +22,12 @@ public class Polygon implements DrawableShapes {
 
 
 	@Override
-	public void draw(Graphics g, World panel) {
+	public void draw(Graphics g, World world) {
 		int[] locxPoints = new int[this.nbPoints];
 		int[] locyPoints = new int[this.nbPoints];
 		for (int i = 0; i < this.nbPoints; i++) {
-			locxPoints[i] = panel.getCoordX(this.xPoints[i]);
-			locyPoints[i] = panel.getCoordY(this.yPoints[i]);
+			locxPoints[i] = world.getCoordX(this.xPoints[i]);
+			locyPoints[i] = world.getCoordY(this.yPoints[i]);
 		}
 		g.setColor(color);
 		g.drawPolygon(locxPoints, locyPoints, this.nbPoints);

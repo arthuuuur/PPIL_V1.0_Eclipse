@@ -19,11 +19,11 @@ public class Segment implements DrawableShapes {
 
 
 	@Override
-	public void draw(Graphics g, World panel) {
-		int xloc1 = panel.getCoordX(this.p1.getX());
-        int yloc1 = panel.getCoordY(this.p1.getY());
-        int xloc2 = panel.getCoordX(this.p2.getX());
-        int yloc2 = panel.getCoordY(this.p2.getY());
+	public void draw(Graphics g, World world) {
+		int xloc1 = world.getCoordX(this.p1.getX());
+        int yloc1 = world.getCoordY(this.p1.getY());
+        int xloc2 = world.getCoordX(this.p2.getX());
+        int yloc2 = world.getCoordY(this.p2.getY());
         g.setColor(color);
         g.drawLine(xloc1, yloc1, xloc2, yloc2);
 	}
