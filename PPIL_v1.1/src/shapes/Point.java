@@ -1,9 +1,9 @@
-package graphics.objects;
+package shapes;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-import graphics2D.World;
+import ui.World;
 
 public class Point implements DrawableShapes {
 

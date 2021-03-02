@@ -2,8 +2,9 @@ package application;
 
 import java.net.ServerSocket;
 import java.net.Socket;
-import Server.ReceveurEnvoyeur;
-import graphics2D.Window;
+
+import server.ReceveurEnvoyeur;
+import ui.Window;
 
 
 public class Main {

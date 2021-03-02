@@ -1,4 +1,4 @@
-package graphics2D;
+package ui;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -8,6 +8,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import javax.swing.JPanel;
+
+import shapes.ShapesManager;
 
 @SuppressWarnings("serial")
 public class World extends JPanel implements MouseListener, MouseMotionListener {

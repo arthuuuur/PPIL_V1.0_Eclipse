@@ -1,7 +1,7 @@
-package cor;
+package corDetector;
 
-import graphics.objects.DrawableShapes;
-import graphics2D.Window;
+import shapes.DrawableShapes;
+import ui.Window;
 
 public abstract class DetecteurForme {
 

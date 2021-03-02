@@ -1,7 +1,7 @@
-package cor;
+package corDetector;
 
-import graphics.objects.DrawableShapes;
-import graphics.objects.Polygon;
+import shapes.DrawableShapes;
+import shapes.Polygon;
 
 public class DetecteurPolygone extends DetecteurForme{
 	

@@ -1,4 +1,4 @@
-package graphics2D;
+package ui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;

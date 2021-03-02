@@ -1,7 +1,7 @@
-package cor;
+package corDetector;
 
-import graphics.objects.Circle;
-import graphics.objects.DrawableShapes;
+import shapes.Circle;
+import shapes.DrawableShapes;
 
 public class DetecteurCercle extends DetecteurForme{
 	

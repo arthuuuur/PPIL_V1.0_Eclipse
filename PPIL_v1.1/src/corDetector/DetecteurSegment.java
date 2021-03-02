@@ -1,7 +1,7 @@
-package cor;
+package corDetector;
 
-import graphics.objects.DrawableShapes;
-import graphics.objects.Segment;
+import shapes.DrawableShapes;
+import shapes.Segment;
 
 
 public class DetecteurSegment extends DetecteurForme{

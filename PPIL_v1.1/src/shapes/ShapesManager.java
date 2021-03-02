@@ -1,14 +1,14 @@
-package graphics2D;
+package shapes;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
-import cor.DetecteurCercle;
-import cor.DetecteurForme;
-import cor.DetecteurPolygone;
-import cor.DetecteurSegment;
-import graphics.objects.DrawableShapes;
+import corDetector.DetecteurCercle;
+import corDetector.DetecteurForme;
+import corDetector.DetecteurPolygone;
+import corDetector.DetecteurSegment;
+import ui.World;
 
 public class ShapesManager{
 
