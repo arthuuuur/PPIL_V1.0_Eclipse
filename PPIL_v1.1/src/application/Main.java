@@ -3,7 +3,7 @@ package application;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import server.ReceveurEnvoyeur;
+import server.ReceiverSender;
 import ui.Window;
 
 
@@ -14,19 +14,19 @@ public class Main {
 		try {
 			ServerSocket serveur;
 			serveur = new ServerSocket(9111);
-			System.out.println("Serveur de dessin demarre : " +serveur);
+			System.out.println("Drawing server started : " +serveur);
 			ThreadGroup groupe;
 			groupe = new ThreadGroup("socketClients");
 			int noConnexion = 0;
 			while(true) {
 				Socket nouveauClientSocket;
-				ReceveurEnvoyeur nouveauClientThread;
+				ReceiverSender nouveauClientThread;
 				nouveauClientSocket = serveur.accept();
 				++noConnexion;
-				System.out.println("Connexion reussie n° : "+noConnexion);
+				System.out.println("Successful connection n° : "+noConnexion);
 				Window W = new Window();
 				W.setVisible(true);
-				nouveauClientThread = new ReceveurEnvoyeur(nouveauClientSocket, groupe, noConnexion, W);
+				nouveauClientThread = new ReceiverSender(nouveauClientSocket, groupe, W);
 				nouveauClientThread.start();
 			}
 		}catch(Exception e) {

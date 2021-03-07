@@ -7,19 +7,42 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+
+
 import javax.swing.JPanel;
 
 import shapes.ShapesManager;
 
+/**
+ * This class which extends JPanel is the world in which all the shapes will be draw
+ */
 @SuppressWarnings("serial")
 public class World extends JPanel implements MouseListener, MouseMotionListener {
 
-  
-	 private ShapesManager ObjManager = new ShapesManager(this);
-	 private int Xold, Yold;                      // coordonnées du point local précédent
-	 private int Xoffset, Yoffset;           	  // décalage de la vue par rapport au centre du repere
-	 public static int ECHELLE = 20; 			  // pas du quadrillage
+	/**
+	 * Contains all the shapes of this world 
+	 */
+	 private ShapesManager sm = new ShapesManager(this);
+	 
+	 /**
+	  * coordinates of the previous local point
+	  */
+	 private int Xold, Yold;                     
 	
+	 /**
+	  * offset of the view in relation to the center of the marker
+	  */
+	 private int Xoffset, Yoffset;           	 
+	
+	 /**
+	  * grid spacing
+	  */
+	 public static int SCALE = 20; 			 
+	
+	 
+	 /**
+	  * World's constructor
+	  */
 	 public World() {
 		 super();
 		 this.Xoffset = 0;
@@ -28,56 +51,67 @@ public class World extends JPanel implements MouseListener, MouseMotionListener 
 		 this.addMouseMotionListener(this);
 	 }
    
-	 public ShapesManager getObjManager() {
-		 return this.ObjManager;
+	 /**
+	  * Getter of sm
+	  * 
+	  * @return the ShapesManager of this world
+	  */
+	 public ShapesManager getShapesManager() {
+		 return this.sm;
 	 }
 	 
+	 /**
+	  * This methode is called automatically each time a shape as to be redraw
+	  */
     @Override
     public void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         int height = this.getHeight();
         int width = this.getWidth();
-        g.setColor(Color.GRAY); // couleur du fond
+        g.setColor(Color.GRAY); //  background color
         g.fillRect(0, 0, width, height);
-        //tracé des axes du repere
-        g.setColor(Color.BLACK); // couleur des axes du repere
+        //drawing of the marker's axes
+        g.setColor(Color.BLACK); // color of the marker's axes
         g.drawLine(width / 2 + this.Xoffset, 0, width / 2 + this.Xoffset, height);
         g.drawLine(0, height / 2 + this.Yoffset, width, height / 2 + this.Yoffset);
-        //initialisation des pointillés pour le quadrillage
+        //initialization of the dotted lines for the grid
         float[] dash = {1, 4};
         BasicStroke pointille = new BasicStroke(1, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND, 10, dash, 0);
-        g.setColor(new Color(20, 60, 40)); // couleur des axes du quadrillage
-        g2.setStroke(pointille); // set parametres pointillé precedement créé
-        //dessin du quadrillage
-        int nbLineRightY = (width - (width / 2 + this.Xoffset)) / ECHELLE + 1; // nombre d'axe verticale du quadrillage a droit de l'axe y du repere
-        int nbLineLeftY = (width / 2 + this.Xoffset) / ECHELLE + 1; // nombre d'axe verticale du quadrillage a gauche de l'axe y du repere
-        int nbLineUpX = (height - (height / 2 + this.Yoffset)) / ECHELLE + 1; // nombre d'axe horizontale du quadrillage en haut de l'axe x du repere
-        int nbLineDownX = (height / 2 + this.Yoffset) / ECHELLE + 1; // nombre d'axe horizontale du quadrillage en bas de l'axe x du repere
+        g.setColor(new Color(20, 60, 40)); // color of the grid's axes
+        g2.setStroke(pointille); // set parameters dotted previously created
+        //grid drawing
+        int nbLineRightY = (width - (width / 2 + this.Xoffset)) / SCALE + 1; // number of vertical axis of the grid to the right of the y axis of the marker
+        int nbLineLeftY = (width / 2 + this.Xoffset) / SCALE + 1; // number of vertical axis of the grid to the left of the y axis of the marker
+        int nbLineUpX = (height - (height / 2 + this.Yoffset)) / SCALE + 1; // number of horizontal axis of the grid at the top of the x axis of the marker
+        int nbLineDownX = (height / 2 + this.Yoffset) / SCALE + 1; // number of horizontal axis of the grid at the bottom of the x axis of the marker
         int coord;
         int i;
         for ( i = 1; i < nbLineRightY; i++) {
-            coord = width / 2 + this.Xoffset + i * ECHELLE;
+            coord = width / 2 + this.Xoffset + i * SCALE;
             g.drawLine(coord, 0, coord, height);
         }
         for (i = 1; i < nbLineLeftY; i++) {
-            coord = width / 2 + this.Xoffset - i * ECHELLE;
+            coord = width / 2 + this.Xoffset - i * SCALE;
             g.drawLine(coord, 0, coord, height);
         }
         
         for (i = 1; i < nbLineDownX; i++) {
-            coord = height / 2 + this.Yoffset - i * ECHELLE;
+            coord = height / 2 + this.Yoffset - i * SCALE;
             g.drawLine(0, coord, width, coord);
         }
         for (i = 1; i < nbLineUpX; i++) {
-            coord = height / 2 + this.Yoffset + i * ECHELLE;
+            coord = height / 2 + this.Yoffset + i * SCALE;
             g.drawLine(0, coord, width, coord);
         }        
-        g2.setStroke(new BasicStroke()); // on enleve les pointillés 
-        if (this.ObjManager != null) {
-            this.ObjManager.draw(g, this);
+        g2.setStroke(new BasicStroke()); // remove the dotted lines 
+        if (this.sm != null) {
+            this.sm.draw(g, this);
         }   
     }
     
+    /**
+     * behavior of the mouse when it moves with the button pressed
+     */
     @Override
     public void mouseDragged(MouseEvent e) {
             int x = e.getX();
@@ -89,18 +123,33 @@ public class World extends JPanel implements MouseListener, MouseMotionListener 
             this.repaint();
     }
 
+    /**
+     * behaviour of the mouse when it presses the button
+     */
     @Override
     public void mousePressed(MouseEvent e) {
         this.Xold = e.getX();
         this.Yold = e.getY();
     }
 
+    /**
+     * Get the local coordinate of a real abscissa
+     * 
+     * @param x The real abscissa
+     * @return The local abscissa
+     */
     public int getCoordX(double x) {
-        return (int) Math.round(this.getWidth() / 2 + this.Xoffset + x * ECHELLE);
+        return (int) Math.round(this.getWidth() / 2 + this.Xoffset + x * SCALE);
     }
 
+    /**
+     * Get the local coordinate of a real ordinate
+     * 
+     * @param y The real ordinate
+     * @return The local ordinate
+     */
     public int getCoordY(double y) {
-        return (int) Math.round(this.getHeight() / 2 + this.Yoffset - y * ECHELLE);
+        return (int) Math.round(this.getHeight() / 2 + this.Yoffset - y * SCALE);
     }
 
 	@Override

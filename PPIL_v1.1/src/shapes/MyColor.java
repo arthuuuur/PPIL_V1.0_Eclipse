@@ -2,14 +2,22 @@ package shapes;
 
 import java.awt.Color;
 
+/**
+ * This class is usefull to convert a color from string format to awt.Color
+ */
 public class MyColor {
     
-	private Color color;
+	/**
+	 * The converted color
+	 */
+	private Color color = null;
 
-    public MyColor(){
-    	color = null;
-    }
-
+	/**
+	 * Allow to convert a color from string format to awt.Color
+	 * 
+	 * @param col The color in string format to be converted in awt.Color
+	 * @return the converted color
+	 */
 	public Color getColor(String col) {
 	    switch (col.toLowerCase()) {
 	    case "black":
