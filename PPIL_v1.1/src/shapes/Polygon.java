@@ -39,7 +39,7 @@ public class Polygon implements DrawableShapes {
 	 * @param xPoints Array of all the x coordinate of each polygon's points
 	 * @param yPoints Array of all the y coordinate of each polygon's points
 	 * 
-	 *  @see #MyColor
+	 *  @see MyColor
 	 */
 	public Polygon(String color, int nbPoint, int[] xPoints, int[] yPoints) {
 		this.color = new MyColor().getColor(color);

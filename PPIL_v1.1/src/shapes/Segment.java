@@ -28,7 +28,7 @@ public class Segment implements DrawableShapes  {
 	 * @param p1 First extremity
 	 * @param p2 Second extremity
 	 * 
-	 *  @see #MyColor
+	 *  @see MyColor
 	 */
 	public Segment(String color, Point p1, Point p2) {
 		this.color = new MyColor().getColor(color);

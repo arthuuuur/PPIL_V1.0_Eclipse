@@ -79,8 +79,8 @@ public abstract class ShapeDetector {
 	 * @param W The window which contains the world in which we will add the shape
 	 *
 	 * @see #deserialize
-	 * @see #Window
-	 * @see #World
+	 * @see Window
+	 * @see ui.World
 	 */
 	public void detecter(String[] requete, Window W){
 		if(estDetectee(requete)) {

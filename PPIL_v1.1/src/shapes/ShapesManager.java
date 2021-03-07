@@ -6,7 +6,7 @@ import java.util.List;
 import ui.World;
 
 /**
- * 
+ * this class groups in a list all the shapes of the world 
  */
 public class ShapesManager{
 	

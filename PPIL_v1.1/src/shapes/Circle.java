@@ -33,7 +33,7 @@ public class Circle implements DrawableShapes {
 	 * @param center The cirlce's center
 	 * @param radius The cirlce's radius
 	 * 
-	 * @see #MyColor
+	 * @see MyColor
 	 */
 	public Circle(String color, Point center, double radius) {
 		this.color = new MyColor().getColor(color);

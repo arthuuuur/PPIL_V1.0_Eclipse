@@ -61,7 +61,7 @@ public class Point implements DrawableShapes {
 	/**
 	 * Setter of y The point's ordinate 
 	 * 
-	 * @param y
+	 * @param y The point's ordinate
 	 */
 	public void setY(double y) {
 		this.y = y;

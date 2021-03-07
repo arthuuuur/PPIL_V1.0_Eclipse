@@ -52,7 +52,7 @@ public class ReceiverSender extends Thread {
 	 * ReceiverSender's constructor
 	 * 
 	 * @param socket The socket between client and server
-	 * @param groupe 
+	 * @param groupe the ThreadGroup
 	 * @param W The window of the client
 	 * 
 	 * @throws IOException
@@ -99,7 +99,7 @@ public class ReceiverSender extends Thread {
 	 * 
 	 * @param requete the request to be processed
 	 * 
-	 * @see #ShapeDetector
+	 * @see ShapeDetector
 	 */
 	public void traiterRequete(String requete) {
 		String[] data = requete.split(";");
