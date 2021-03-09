@@ -1,7 +1,7 @@
 package corDetector;
 
 import shapes.Circle;
-import shapes.DrawableShapes;
+import shapes.Shapes;
 import shapes.Point;
 
 /**
@@ -15,7 +15,7 @@ public class CircleDetector extends ShapeDetector{
 	 *
 	 * @see #deserialize
 	 */
-	private DrawableShapes Shape;
+	private Shapes Shape;
 	
 	/**
 	 * Default DetecteurCercle's constructor
@@ -48,7 +48,7 @@ public class CircleDetector extends ShapeDetector{
 	 * @return The circle corresponding to the request informations 
 	 */
 	@Override
-	public DrawableShapes deserialize(String[] requete) {
+	public Shapes deserialize(String[] requete) {
 		String color;
 		if (isGrouped(requete)) {
 			color = requete[this.indexOf(requete, "groupColor") + 1];

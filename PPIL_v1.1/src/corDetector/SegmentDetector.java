@@ -1,6 +1,6 @@
 package corDetector;
 
-import shapes.DrawableShapes;
+import shapes.Shapes;
 import shapes.Point;
 import shapes.Segment;
 
@@ -15,7 +15,7 @@ public class SegmentDetector extends ShapeDetector{
 	 *
 	 * @see #deserialize
 	 */
-	private DrawableShapes Shape;
+	private Shapes Shape;
 		
 	/**
 	 * Default DetecteurSegment's constructor
@@ -48,7 +48,7 @@ public class SegmentDetector extends ShapeDetector{
 	 * @return The segment corresponding to the request informations 
 	 */
 	@Override
-	public DrawableShapes deserialize(String[] requete) {
+	public Shapes deserialize(String[] requete) {
 		String color;
 		if (isGrouped(requete)) {
 			color = requete[this.indexOf(requete, "groupColor") + 1];

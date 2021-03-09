@@ -13,7 +13,7 @@ public class ShapesManager{
 	/**
 	 * The list of all shapes contained in the world
 	 */
-	private List<DrawableShapes> objects; 
+	private List<Shapes> listShapes; 
 	
 	/**
 	 * The world which contains the shapes
@@ -27,33 +27,33 @@ public class ShapesManager{
 	 */
     public ShapesManager(World W) {
     	this.W = W;
-        this.objects = new ArrayList<>();
+        this.listShapes = new ArrayList<>();
     }
     
     /**
-     * Clear the list of DrawableShapes
+     * Clear the list of Shapes
      */
     public void clear() {
-    	this.objects.clear();
+    	this.listShapes.clear();
     }
     
     /**
-     * Add a shapes into the list of drawableShapes
+     * Add a shapes into the list of Shapes
      * 
      * @param obj The shape to add to the list
      */
-    public void addObject(DrawableShapes obj) {
-    	this.objects.add(obj);
+    public void addShape(Shapes obj) {
+    	this.listShapes.add(obj);
         W.repaint();
     }
     
     /**
-     * Remove a shapes from the list of drawableShapes
+     * Remove a shapes from the list of Shapes
      * 
      * @param obj The shape to remove from the list
      */
-    public void removeObject(DrawableShapes obj) {
-    	this.objects.remove(obj);
+    public void removeShape(Shapes obj) {
+    	this.listShapes.remove(obj);
     	 W.repaint();
     }
   	
@@ -64,7 +64,7 @@ public class ShapesManager{
 	 * @param world The world in which the circle will be draw
 	 */
     public void draw(Graphics g, World world) {
-        for (DrawableShapes current : this.objects) {
+        for (Shapes current : this.listShapes) {
             current.draw(g,world);
         }
     }

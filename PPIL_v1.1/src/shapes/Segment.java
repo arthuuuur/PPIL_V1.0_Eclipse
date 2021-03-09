@@ -8,7 +8,7 @@ import ui.World;
 /**
  * This class simply represente a segment with 2 points for both of his extremities and a color
 */
-public class Segment implements DrawableShapes  {
+public class Segment implements Shapes  {
 
 	/**
 	 * Segment's color

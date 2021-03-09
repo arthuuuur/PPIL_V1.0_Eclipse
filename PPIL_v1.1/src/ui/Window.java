@@ -27,7 +27,7 @@ public class Window extends JFrame {
     }
 	
 	/**
-	 * Setter of world
+	 * Getter of world
 	 * 
 	 * @return The world of the window
 	 */

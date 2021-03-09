@@ -8,7 +8,7 @@ import ui.World;
 /**
  * This class simply represente a point with an abscissa and an ordinate
  */
-public class Point implements DrawableShapes {
+public class Point implements Shapes {
 
 	/**
 	* The point's abscissa

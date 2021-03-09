@@ -1,6 +1,6 @@
 package corDetector;
 
-import shapes.DrawableShapes;
+import shapes.Shapes;
 import ui.Window;
 
 /**
@@ -66,7 +66,7 @@ public abstract class ShapeDetector {
 	 * @param requete the request to be deserialize
 	 * @return The shape corresponding to the request informations 
 	 */
-	protected abstract DrawableShapes deserialize(String[] requete);
+	protected abstract Shapes deserialize(String[] requete);
 	
 	/**
 	 * The main function of the responsability's chain
@@ -84,7 +84,7 @@ public abstract class ShapeDetector {
 	 */
 	public void detecter(String[] requete, Window W){
 		if(estDetectee(requete)) {
-			W.getWorld().getShapesManager().addObject(deserialize(requete));
+			W.getWorld().getShapesManager().addShape(deserialize(requete));
 		}
 		else if(suivant != null)
 			suivant.detecter(requete, W);

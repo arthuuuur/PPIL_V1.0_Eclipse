@@ -1,6 +1,6 @@
 package corDetector;
 
-import shapes.DrawableShapes;
+import shapes.Shapes;
 import shapes.Polygon;
 
 /**
@@ -14,7 +14,7 @@ public class PolygonDetector extends ShapeDetector{
 	 *
 	 * @see #deserialize
 	 */
-	private DrawableShapes Shape;
+	private Shapes Shape;
 	
 	/**
 	 * Default DetecteurPolygon's constructor
@@ -47,7 +47,7 @@ public class PolygonDetector extends ShapeDetector{
 	 * @return The polygon corresponding to the request informations 
 	 */
 	@Override
-	public DrawableShapes deserialize(String[] requete) {
+	public Shapes deserialize(String[] requete) {
 		String color;
 		if (isGrouped(requete)) {
 			color = requete[this.indexOf(requete, "groupColor") + 1];

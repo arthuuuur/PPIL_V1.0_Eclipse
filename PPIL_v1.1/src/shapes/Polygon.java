@@ -8,7 +8,7 @@ import ui.World;
 /**
  * This class simply represente a polygon with 2 array for the x and y coordinate of his points, the point's number of the polygon and his color
  */
-public class Polygon implements DrawableShapes {
+public class Polygon implements Shapes {
 	
 	/**
 	 * Polygon's color

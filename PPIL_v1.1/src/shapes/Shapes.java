@@ -7,7 +7,7 @@ import ui.World;
 /**
  * Interface for all the shape which can be drawable 
  */
-public interface DrawableShapes {
+public interface Shapes {
 	
 	/**
 	 * Allow to draw a drawableShape in the

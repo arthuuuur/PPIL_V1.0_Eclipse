@@ -8,7 +8,7 @@ import ui.World;
 /**
  * This class simply represente a cirlce with a center, a radius and a color
  */
-public class Circle implements DrawableShapes {
+public class Circle implements Shapes {
 	
 	/**
 	 * The circle's color
