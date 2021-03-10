@@ -29,7 +29,7 @@ public class ShapesManager{
     	this.W = W;
         this.listShapes = new ArrayList<>();
     }
-    
+     
     /**
      * Clear the list of Shapes
      */
