@@ -35,4 +35,3 @@ public class Window extends JFrame {
 		return this.world;
 	}
 }
-//test
