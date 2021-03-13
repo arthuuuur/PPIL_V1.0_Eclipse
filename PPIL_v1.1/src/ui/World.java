@@ -104,9 +104,8 @@ public class World extends JPanel implements MouseListener, MouseMotionListener 
             g.drawLine(0, coord, width, coord);
         }        
         g2.setStroke(new BasicStroke()); // remove the dotted lines 
-        if (this.sm != null) {
-            this.sm.draw(g, this);
-        }   
+        this.sm.draw(g, this); // Draw all the shapes 
+        
     }
     
     /**
