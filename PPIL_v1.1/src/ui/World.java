@@ -1,9 +1,7 @@
 package ui;
 
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -65,7 +63,6 @@ public class World extends JPanel implements MouseListener, MouseMotionListener 
 	  */
     @Override
     public void paintComponent(Graphics g) {
-        Graphics2D g2 = (Graphics2D) g;
         int height = this.getHeight();
         int width = this.getWidth();
         g.setColor(Color.GRAY); //  background color
@@ -74,11 +71,7 @@ public class World extends JPanel implements MouseListener, MouseMotionListener 
         g.setColor(Color.BLACK); // color of the marker's axes
         g.drawLine(width / 2 + this.Xoffset, 0, width / 2 + this.Xoffset, height);
         g.drawLine(0, height / 2 + this.Yoffset, width, height / 2 + this.Yoffset);
-        //initialization of the dotted lines for the grid
-        float[] dash = {1, 4};
-        BasicStroke pointille = new BasicStroke(1, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND, 10, dash, 0);
-        g.setColor(new Color(20, 60, 40)); // color of the grid's axes
-        g2.setStroke(pointille); // set parameters dotted previously created
+        g.setColor(Color.LIGHT_GRAY);
         //grid drawing
         int nbLineRightY = (width - (width / 2 + this.Xoffset)) / SCALE + 1; // number of vertical axis of the grid to the right of the y axis of the marker
         int nbLineLeftY = (width / 2 + this.Xoffset) / SCALE + 1; // number of vertical axis of the grid to the left of the y axis of the marker
@@ -102,10 +95,8 @@ public class World extends JPanel implements MouseListener, MouseMotionListener 
         for (i = 1; i < nbLineUpX; i++) {
             coord = height / 2 + this.Yoffset + i * SCALE;
             g.drawLine(0, coord, width, coord);
-        }        
-        g2.setStroke(new BasicStroke()); // remove the dotted lines 
-        this.sm.draw(g, this); // Draw all the shapes 
-        
+        }         
+        this.sm.draw(g, this); // Draw all the shapes    
     }
     
     /**
