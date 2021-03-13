@@ -3,7 +3,6 @@ package server;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintStream;
 import java.net.Socket;
 
 import corDetector.CircleDetector;
@@ -28,11 +27,6 @@ public class ReceiverSender extends Thread {
 	 * InputStream to receive message from the client
 	 */
 	private BufferedReader fluxEntrant;
-	
-	/**
-	 * OutputStream to send message to the client
-	 */
-	private PrintStream fluxSortant;
 	
 	/**
 	 * The window created for the client in which we will display these requests
@@ -62,7 +56,6 @@ public class ReceiverSender extends Thread {
 		this.socket = socket;
 		this.W = W;
 		fluxEntrant = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
-		fluxSortant = new PrintStream(this.socket.getOutputStream());
 		initCor();
 	}
 	
@@ -111,14 +104,11 @@ public class ReceiverSender extends Thread {
 	 */
 	public void run() {
 		String requete;
-		String reponse;
 		try {
 			while(!isInterrupted()) {
 				requete = fluxEntrant.readLine();
 				System.out.println("Client request : " + requete);
 				traiterRequete(requete);
-				reponse = "request received";
-				fluxSortant.println(reponse);
 				sleep(5);
 			}
 		} 
