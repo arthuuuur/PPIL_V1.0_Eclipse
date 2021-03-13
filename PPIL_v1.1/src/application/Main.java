@@ -3,7 +3,7 @@ package application;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import server.ReceiverSender;
+import server.Receiver;
 import ui.Window;
 
 
@@ -20,13 +20,13 @@ public class Main {
 			int noConnexion = 0;
 			while(true) {
 				Socket nouveauClientSocket;
-				ReceiverSender nouveauClientThread;
+				Receiver nouveauClientThread;
 				nouveauClientSocket = serveur.accept();
 				++noConnexion;
 				System.out.println("Successful connection n° : "+noConnexion);
 				Window W = new Window();
 				W.setVisible(true);
-				nouveauClientThread = new ReceiverSender(nouveauClientSocket, groupe, W);
+				nouveauClientThread = new Receiver(nouveauClientSocket, groupe, W);
 				nouveauClientThread.start();
 			}
 		}catch(Exception e) {

@@ -16,7 +16,7 @@ import ui.Window;
  * This class runs in a separate thread. 
  * For each new client that connects, a new instance of this class is created. 
  */
-public class ReceiverSender extends Thread {
+public class Receiver extends Thread {
 	
 	/**
 	 * The socket for the communication between client and server
@@ -51,7 +51,7 @@ public class ReceiverSender extends Thread {
 	 * 
 	 * @throws IOException
 	 */
-	public ReceiverSender(Socket socket, ThreadGroup groupe, Window W) throws IOException {
+	public Receiver(Socket socket, ThreadGroup groupe, Window W) throws IOException {
 		super(groupe,"ReceveurEnvoyeur");
 		this.socket = socket;
 		this.W = W;
